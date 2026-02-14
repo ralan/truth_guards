@@ -1,0 +1,1 @@
+Python, FastAPI, Weaviate, Streamlit, Docker, MCP (Model Context Protocol), Pydantic, Uvicorn, Sentence Transformers, Hybrid Search, REST API, Claude Code, AWS EC2, Ubuntu

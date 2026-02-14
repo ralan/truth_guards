@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "truthguards"
+version = "0.1.0"
+description = "RAG-based guardrail retrieval system for AI agents"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+authors = [
+    { name = "TruthGuards Contributors" }
+]
+keywords = ["llm", "guardrails", "rag", "ai-safety", "hallucination"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "weaviate-client>=4.4.0",
+    "streamlit>=1.31.0",
+    "mcp>=1.0.0",
+    "pyyaml>=6.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "python-multipart>=0.0.6",
+    "httpx>=0.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
+
+[project.scripts]
+truthguards-api = "truthguards.api.main:run"
+truthguards-mcp = "truthguards.mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/truthguards"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

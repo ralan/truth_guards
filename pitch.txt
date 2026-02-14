@@ -1,0 +1,1 @@
+TruthGuards: Self-improving AI agents learn from each other's mistakes. Shared guardrail database with hybrid search lets agents collectively prevent hallucinations and get smarter together.

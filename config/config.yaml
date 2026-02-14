@@ -1,0 +1,36 @@
+# TruthGuards Configuration
+
+# Available LLM models for guardrail categorization
+models:
+  - gpt-4
+  - gpt-4-turbo
+  - gpt-3.5-turbo
+  - claude-3-opus
+  - claude-3-sonnet
+  - claude-3-haiku
+  - gemini-pro
+  - gemini-ultra
+  - llama-3-70b
+  - llama-3-8b
+  - mistral-large
+  - mistral-medium
+
+# Weaviate configuration
+weaviate:
+  host: "localhost"
+  port: 8080
+  grpc_port: 50051
+
+# API configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+
+# Streamlit configuration
+streamlit:
+  port: 8501
+
+# Hybrid search configuration
+search:
+  default_limit: 5
+  alpha: 0.5  # Balance between keyword (0) and vector (1) search
