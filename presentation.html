@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TruthGuards - Hackathon Presentation</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+        @media print {
+            .page-break { page-break-before: always; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #1a202c;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3182ce;
+        }
+        h1 {
+            color: #1a365d;
+            font-size: 28pt;
+            margin: 0;
+            font-weight: 700;
+        }
+        .subtitle {
+            color: #4a5568;
+            font-size: 14pt;
+            margin-top: 5px;
+        }
+        h2 {
+            color: #2c5282;
+            font-size: 14pt;
+            border-bottom: 2px solid #3182ce;
+            padding-bottom: 5px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .two-col {
+            display: flex;
+            gap: 20px;
+        }
+        .two-col > div {
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 10pt;
+        }
+        th, td {
+            border: 1px solid #cbd5e0;
+            padding: 6px 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #edf2f7;
+            font-weight: 600;
+            color: #1a365d;
+        }
+        tr:nth-child(even) { background-color: #f7fafc; }
+        .highlight { background-color: #ebf8ff !important; }
+        pre {
+            background-color: #1a202c;
+            color: #e2e8f0;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 9pt;
+            overflow-x: auto;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+        }
+        code {
+            background-color: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 9pt;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        .diagram {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 9pt;
+            white-space: pre;
+            line-height: 1.3;
+        }
+        .check { color: #38a169; font-weight: bold; }
+        .box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .box h2 { color: white; border: none; margin: 0 0 5px 0; }
+        .box p { margin: 5px 0; font-size: 12pt; }
+        .tagline {
+            font-style: italic;
+            color: #4a5568;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 11pt;
+        }
+        .links {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 11pt;
+        }
+        .links a { color: #3182ce; margin: 0 10px; }
+        ul { margin: 8px 0; padding-left: 20px; }
+        li { margin: 4px 0; }
+        strong { color: #1a365d; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>TruthGuards</h1>
+    <div class="subtitle">Collective Memory for Self-Improving AI Agents</div>
+</div>
+
+<h2>The Problem</h2>
+<table>
+    <tr>
+        <th>Without TruthGuards</th>
+        <th>With TruthGuards</th>
+    </tr>
+    <tr>
+        <td>Every agent adds ALL guardrails to every prompt</td>
+        <td>Agents retrieve only RELEVANT guardrails</td>
+    </tr>
+    <tr>
+        <td>Prompts become bloated and expensive</td>
+        <td>Lean prompts, lower cost</td>
+    </tr>
+    <tr>
+        <td>Each agent learns in isolation</td>
+        <td>Agents learn from EACH OTHER</td>
+    </tr>
+    <tr>
+        <td>Same mistakes repeated globally</td>
+        <td>One fix benefits everyone</td>
+    </tr>
+</table>
+
+<h2>The Solution: Self-Improving Through Collective Learning</h2>
+<div class="diagram">     Agent A (Tokyo)              Agent B (London)              Agent C (NYC)
+          │                            │                            │
+          │ adds medical               │ asks health                │ asks symptom
+          │ guardrail                  │ question                   │ question
+          ▼                            ▼                            ▼
+     ┌─────────────────────────────────────────────────────────────────┐
+     │                     TruthGuards Database                        │
+     │                    (Hybrid Search Engine)                       │
+     │                                                                 │
+     │   🔍 Semantic Search (understands meaning)                      │
+     │   🔑 Keyword Search (finds exact matches)                       │
+     │   🎯 Model Filter (GPT-4, Claude, etc.)                         │
+     └─────────────────────────────────────────────────────────────────┘
+                     │                            │
+                     ▼                            ▼
+               Returns medical            Returns medical
+               guardrail to B             guardrail to C</div>
+
+<p><strong>One agent's learning → Everyone's improvement = Self-Improving AI Network</strong></p>
+
+<h2>Live Demo</h2>
+<div class="two-col">
+    <div>
+        <table>
+            <tr><th>Interface</th><th>URL</th></tr>
+            <tr><td><strong>Web UI</strong></td><td>truthguards.live:8501</td></tr>
+            <tr><td><strong>REST API</strong></td><td>truthguards.live:8000</td></tr>
+            <tr><td><strong>API Docs</strong></td><td>truthguards.live:8000/docs</td></tr>
+            <tr><td><strong>MCP Server</strong></td><td>Built-in Claude integration</td></tr>
+        </table>
+    </div>
+    <div>
+        <strong>API Example:</strong>
+        <pre><code># Search for relevant guardrails
+POST /guardrails/search
+{
+  "prompt": "I have fever",
+  "model": "gpt-4"
+}
+→ Returns matching guardrails
+  with relevance scores</code></pre>
+    </div>
+</div>
+
+<!-- PAGE BREAK -->
+<div class="page-break"></div>
+
+<h2>Technical Architecture</h2>
+<div class="diagram">┌──────────────┐    ┌──────────────┐    ┌──────────────────────────┐
+│  Streamlit   │───▶│   FastAPI    │───▶│  Weaviate + Transformers │
+│   Web UI     │    │   REST API   │    │   (Hybrid Vector DB)     │
+└──────────────┘    └──────────────┘    └──────────────────────────┘
+                          ▲
+                          │
+                    ┌──────────────┐
+                    │  MCP Server  │ ◀── Claude / AI Assistants
+                    └──────────────┘</div>
+
+<table>
+    <tr><th>Component</th><th>Technology</th><th>Why</th></tr>
+    <tr><td>API</td><td>FastAPI + Python 3.12</td><td>Fast, async, auto-docs</td></tr>
+    <tr><td>Search</td><td>Weaviate Hybrid</td><td>Best of keyword + semantic</td></tr>
+    <tr><td>Embeddings</td><td>Sentence Transformers</td><td>Self-contained, no API keys</td></tr>
+    <tr><td>UI</td><td>Streamlit</td><td>Rapid prototyping</td></tr>
+    <tr><td>Deploy</td><td>Docker Compose</td><td>One-command deployment</td></tr>
+    <tr><td>AI Integration</td><td>MCP Protocol</td><td>Native Claude support</td></tr>
+</table>
+
+<h2>Why TruthGuards Wins</h2>
+<table>
+    <tr><th>Judging Criteria</th><th>How We Deliver</th></tr>
+    <tr class="highlight"><td><strong>Completion & Demo</strong></td><td><span class="check">✓</span> Full working system live at truthguards.live</td></tr>
+    <tr class="highlight"><td><strong>Self-Improving Agents</strong></td><td><span class="check">✓</span> Core concept: agents improve collectively</td></tr>
+    <tr><td><strong>Scalability</strong></td><td><span class="check">✓</span> Vector DB scales horizontally, Docker-ready</td></tr>
+    <tr><td><strong>Innovation</strong></td><td><span class="check">✓</span> Novel: shared guardrail memory + hybrid search</td></tr>
+    <tr><td><strong>Output Quality</strong></td><td><span class="check">✓</span> Tested: medical, legal, security queries work</td></tr>
+    <tr><td><strong>Presentation</strong></td><td><span class="check">✓</span> Clear problem → solution → demo flow</td></tr>
+</table>
+
+<h2>Key Differentiators</h2>
+<table>
+    <tr><th>Feature</th><th>TruthGuards</th><th>Traditional</th></tr>
+    <tr><td>Guardrail Selection</td><td><strong>Smart</strong> (relevant only)</td><td>Dumb (all or nothing)</td></tr>
+    <tr><td>Learning</td><td><strong>Collective</strong></td><td>Individual</td></tr>
+    <tr><td>Search</td><td><strong>Hybrid</strong> (semantic + keyword)</td><td>Usually keyword only</td></tr>
+    <tr><td>Dependencies</td><td><strong>Self-contained</strong></td><td>Often needs OpenAI API</td></tr>
+</table>
+
+<h2>What's Next</h2>
+<ul>
+    <li><strong>Guardrail Voting</strong> — Community ranks effectiveness</li>
+    <li><strong>Auto-Generation</strong> — Detect hallucinations → suggest guardrails</li>
+    <li><strong>Enterprise Mode</strong> — Private databases for companies</li>
+    <li><strong>Analytics</strong> — Which guardrails work best?</li>
+</ul>
+
+<div class="box">
+    <h2>TruthGuards</h2>
+    <p><strong>Self-improving AI agents learn from each other's mistakes.</strong></p>
+</div>
+
+<div class="links">
+    🌐 <a href="http://truthguards.live">truthguards.live</a> |
+    📦 <a href="https://github.com">github.com/truthguards</a>
+</div>
+
+<div class="tagline">
+    "Because the best way to prevent mistakes is to learn from everyone's mistakes."
+</div>
+
+</body>
+</html>
